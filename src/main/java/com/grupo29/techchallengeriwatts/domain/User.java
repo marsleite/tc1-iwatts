@@ -1,4 +1,4 @@
-package com.grupo29.techchallengeriwatts.model;
+package com.grupo29.techchallengeriwatts.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,11 +15,11 @@ import java.time.LocalDateTime;
 @Builder
 public class User {
 
-  private Long id;
-  private String name;
-  private String email;
-  private String password;
-  private String parents;
-  private String gender;
-  private LocalDateTime birthDay;
+    private Long id;
+    private String name;
+    private String email;
+    private String password;
+    private String parents;
+    private String gender;
+    private LocalDateTime birthDay;
 }
