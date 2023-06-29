@@ -19,7 +19,7 @@ public class EletrodomesticoRepositoryImpl implements EletrodomesticoRepository{
   }
   @Override
   public EletrodomesticoEntity createEletrodomestico(Eletrodomestico eletrodomestico) {
-    if (eletrodomesticoRepositoryGatewaySpring.existsById(eletrodomestico.getId())) {
+    if (eletrodomesticoRepositoryGatewaySpring.findByModelo(eletrodomestico.getModelo())) {
       throw new RepositoryException(ERROR_MESSAGE);
     }
 

@@ -20,7 +20,7 @@ public class UserRepositoryImpl implements UserRepository{
   }
   @Override
   public UserEntity createUser(User user) {
-    if (userRepositoryGatewaySpring.existsById(user.getId())) {
+    if (userRepositoryGatewaySpring.findByEmail(user.getEmail())) {
       throw new RepositoryException(ERROR_MESSAGE);
     }
 

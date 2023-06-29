@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Builder
 @EqualsAndHashCode
 public class Address {
+    private Long id;
     private String rua;
     private String numero;
     private String cidade;
