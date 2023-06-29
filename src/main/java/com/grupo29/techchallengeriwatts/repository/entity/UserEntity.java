@@ -1,5 +1,6 @@
 package com.grupo29.techchallengeriwatts.repository.entity;
 
+import com.grupo29.techchallengeriwatts.domain.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,4 +29,16 @@ public class UserEntity {
   private String parents;
   private String gender;
   private LocalDateTime birthDay;
+
+  public User toDomain() {
+    return User.builder()
+            .id(this.getId())
+            .name(this.getName())
+            .email(this.getEmail())
+            .parents(this.getParents())
+            .gender(this.getGender())
+            .birthDay(this.getBirthDay())
+            .build();
+  }
+
 }

@@ -1,13 +1,12 @@
 package com.grupo29.techchallengeriwatts.repository.gateway;
 
 import com.grupo29.techchallengeriwatts.domain.Address;
-import com.grupo29.techchallengeriwatts.exception.RepositoryException;
 import com.grupo29.techchallengeriwatts.repository.entity.AddressEntity;
 import com.grupo29.techchallengeriwatts.repository.gateway.spring.AddressRepositoryGatewaySpring;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class AddressRepositoryImpl implements AddressRepository {
 
   private final AddressRepositoryGatewaySpring addressRepositoryGatewaySpring;
