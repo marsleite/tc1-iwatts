@@ -16,7 +16,7 @@ public class AddressRepositoryImpl implements AddressRepository {
     this.addressRepositoryGatewaySpring = addressRepositoryGatewaySpring;
   }
   @Override
-  public AddressEntity createAddress(Address address) {
+  public Address createAddress(Address address) {
    return addressRepositoryGatewaySpring.save(
            AddressEntity.builder()
                    .rua(address.getRua())
@@ -27,6 +27,6 @@ public class AddressRepositoryImpl implements AddressRepository {
                    .pais(address.getPais())
                    .bairro(address.getBairro())
                    .build()
-   );
+   ).toDomain();
   }
 }

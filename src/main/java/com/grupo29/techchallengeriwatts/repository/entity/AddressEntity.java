@@ -1,5 +1,6 @@
 package com.grupo29.techchallengeriwatts.repository.entity;
 
+import com.grupo29.techchallengeriwatts.domain.Address;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,4 +29,17 @@ public class AddressEntity {
   private String cep;
   private String pais;
   private String bairro;
+
+  public Address toDomain() {
+    return Address.builder()
+            .id(this.getId())
+            .rua(this.getRua())
+            .numero(this.getNumero())
+            .cidade(this.getCidade())
+            .estado(this.getEstado())
+            .cep(this.getCep())
+            .pais(this.getPais())
+            .bairro(this.getBairro())
+            .build();
+  }
 }
