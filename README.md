@@ -39,8 +39,6 @@ Atualmente, muitos consumidores de produtos eletroeletrônicos acabam gastando m
 
 `POST /iwatts/v1/user/register`
 ```json
-header 'Content-Type: application/json'
-
 {
   "nome": "Fulano",
   "email": "iwatts@gmail.com",
