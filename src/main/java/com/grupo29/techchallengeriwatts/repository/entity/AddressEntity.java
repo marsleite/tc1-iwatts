@@ -10,22 +10,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-public class UserEntity {
+public class AddressEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  private String name;
-  private String email;
-  private String parents;
-  private String gender;
-  private LocalDateTime birthDay;
+  private String rua;
+  private String numero;
+  private String cidade;
+  private String estado;
+  private String cep;
+  private String pais;
+  private String bairro;
 }

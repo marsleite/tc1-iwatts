@@ -8,7 +8,8 @@ import lombok.*;
 @Builder
 @EqualsAndHashCode
 public class Eletrodomestico {
+    private Long id;
     private String nome;
     private String modelo;
-    private String potencia;
+    private Integer potencia;
 }
