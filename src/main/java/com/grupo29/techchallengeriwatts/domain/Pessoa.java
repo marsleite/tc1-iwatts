@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class Pessoa {
 
     private Long id;
-    private String name;
+    private String nome;
     private String email;
-    private String parents;
-    private String gender;
-    private LocalDateTime birthDay;
+    private String perentesco;
+    private String sexo;
+    private LocalDateTime dataNascimento;
 }

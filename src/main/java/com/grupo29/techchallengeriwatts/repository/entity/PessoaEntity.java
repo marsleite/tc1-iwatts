@@ -1,6 +1,6 @@
 package com.grupo29.techchallengeriwatts.repository.entity;
 
-import com.grupo29.techchallengeriwatts.domain.User;
+import com.grupo29.techchallengeriwatts.domain.Pessoa;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
-public class UserEntity {
+public class PessoaEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,14 +30,14 @@ public class UserEntity {
   private String gender;
   private LocalDateTime birthDay;
 
-  public User toDomain() {
-    return User.builder()
+  public Pessoa toDomain() {
+    return Pessoa.builder()
             .id(this.getId())
-            .name(this.getName())
+            .nome(this.getName())
             .email(this.getEmail())
-            .parents(this.getParents())
-            .gender(this.getGender())
-            .birthDay(this.getBirthDay())
+            .perentesco(this.getParents())
+            .sexo(this.getGender())
+            .dataNascimento(this.getBirthDay())
             .build();
   }
 
