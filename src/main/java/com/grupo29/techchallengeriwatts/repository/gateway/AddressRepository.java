@@ -5,5 +5,5 @@ import com.grupo29.techchallengeriwatts.repository.entity.AddressEntity;
 
 public interface AddressRepository {
 
-  public AddressEntity createAddress(Address address);
+  AddressEntity createAddress(Address address);
 }

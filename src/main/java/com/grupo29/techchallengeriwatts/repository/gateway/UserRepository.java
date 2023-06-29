@@ -5,5 +5,5 @@ import com.grupo29.techchallengeriwatts.repository.entity.UserEntity;
 
 public interface UserRepository {
 
-  public UserEntity createUser(User user);
+  UserEntity createUser(User user);
 }
