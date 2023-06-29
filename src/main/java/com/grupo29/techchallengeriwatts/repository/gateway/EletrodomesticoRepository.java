@@ -4,5 +4,5 @@ import com.grupo29.techchallengeriwatts.domain.Eletrodomestico;
 
 public interface EletrodomesticoRepository {
 
-  public Eletrodomestico createEletrodomestico(Eletrodomestico eletrodomestico);
+  Eletrodomestico createEletrodomestico(Eletrodomestico eletrodomestico);
 }
