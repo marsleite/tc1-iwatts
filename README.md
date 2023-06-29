@@ -36,8 +36,9 @@ Atualmente, muitos consumidores de produtos eletroeletrônicos acabam gastando m
 ## Use Cases
 
 ### Gestão de pessoas
+
+`POST /iwatts/v1/user/register`
 ```json
-POST /iwatts/v1/user/register
 header 'Content-Type: application/json'
 
 {
@@ -47,10 +48,11 @@ header 'Content-Type: application/json'
   "sexo": "Masculino",
   "parentesco": "Pai"
 }
+```
 
-Response:
-Status Code: 201 created
-
+`Response:
+Status Code: 201 created`
+```json
 {
   "id": 1,
   "nome": "Fulano",
@@ -59,9 +61,9 @@ Status Code: 201 created
 ```
 
 ### Cadastro de endereço
-```json
-POST /iwatts/v1/address/register
 
+`POST /iwatts/v1/address/register`
+```json
 {
   "rua": "Rua A",
   "numero": "10",
@@ -71,10 +73,10 @@ POST /iwatts/v1/address/register
   "pais": "Brasil",
   "bairro": "Morumbi"
 }
-
-Response:
-Status Code: 201 created
-        
+```
+`Response:
+Status Code: 201 created`
+```json        
 {
   "id": 1
   "rua": "Rua A",
@@ -88,18 +90,18 @@ Status Code: 201 created
 ```
 
 ### Cadastro de Eletrodomésticos
-```json
-POST /iwatts/v1/eletro/register
 
+`POST /iwatts/v1/eletro/register`
+```json
 {
   "name": "Geladeira",
   "modelo": "AB-GELADEIRA",
   "potencia": 1500
 }
-
-Response
-Status Code: 201 created
-        
+```
+`Response
+Status Code: 201 created`
+```json
 {
   "id": 1,
   "nome": "Geladeira",
