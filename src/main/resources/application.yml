@@ -1,1 +1,9 @@
-
+spring:
+  datasource:
+    url: jdbc:h2:mem:iwattsdb   # Conexão do banco de dados H2 em memória
+    driver-class-name: org.h2.Driver
+    username: sa              # Nome de usuário padrão
+    password:                 # Senha padrão (vazio)
+  h2:
+    console:
+      enabled: true           # Ativa a console do H2 para acesso via navegador
