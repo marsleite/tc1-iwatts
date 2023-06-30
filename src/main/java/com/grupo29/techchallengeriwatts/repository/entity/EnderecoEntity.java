@@ -1,6 +1,6 @@
 package com.grupo29.techchallengeriwatts.repository.entity;
 
-import com.grupo29.techchallengeriwatts.domain.Address;
+import com.grupo29.techchallengeriwatts.domain.Endereco;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,11 +23,11 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@Table(name = "address")
-public class AddressEntity {
+@Table(name = "endereco")
+public class EnderecoEntity {
 
   @Id
-  @Column(name = "address_id")
+  @Column(name = "endereco_id")
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   private String rua;
@@ -37,13 +37,13 @@ public class AddressEntity {
   private String cep;
   private String pais;
   private String bairro;
-  @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "endereco", cascade = CascadeType.ALL)
   private List<PessoaEntity> pessoas;
-  @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "endereco", cascade = CascadeType.ALL)
   private List<EletrodomesticoEntity> eletrodomesticos;
 
-  public Address toDomain() {
-    return Address.builder()
+  public Endereco toDomain() {
+    return Endereco.builder()
             .id(this.getId())
             .rua(this.getRua())
             .numero(this.getNumero())
