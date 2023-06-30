@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -18,7 +18,7 @@ public class Pessoa {
     private Long id;
     private String nome;
     private String email;
-    private String perentesco;
+    private String parentesco;
     private String sexo;
-    private LocalDateTime dataNascimento;
+    private LocalDate dataNascimento;
 }

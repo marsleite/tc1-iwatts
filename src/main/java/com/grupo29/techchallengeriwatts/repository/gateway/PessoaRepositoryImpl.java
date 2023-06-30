@@ -4,10 +4,12 @@ import com.grupo29.techchallengeriwatts.domain.Pessoa;
 import com.grupo29.techchallengeriwatts.exception.RepositoryException;
 import com.grupo29.techchallengeriwatts.repository.entity.PessoaEntity;
 import com.grupo29.techchallengeriwatts.repository.gateway.spring.PessoaRepositoryGatewaySpring;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
+@Slf4j
 public class PessoaRepositoryImpl implements PessoaRepository {
 
   private final PessoaRepositoryGatewaySpring pessoaRepositoryGatewaySpring;
@@ -19,17 +21,17 @@ public class PessoaRepositoryImpl implements PessoaRepository {
 
   @Override
   public Pessoa createUser(Pessoa pessoa) {
-    if (pessoaRepositoryGatewaySpring.findByEmail(pessoa.getEmail())) {
+    log.info("Chegou no repository para salvar no banco", pessoa);
+    if (pessoaRepositoryGatewaySpring.existsByEmail(pessoa.getEmail())) {
       throw new RepositoryException(ERROR_MESSAGE);
     }
-
     return pessoaRepositoryGatewaySpring.save(
             PessoaEntity.builder()
-                    .name(pessoa.getNome())
+                    .nome(pessoa.getNome())
                     .email(pessoa.getEmail())
-                    .birthDay(pessoa.getDataNascimento())
-                    .gender(pessoa.getSexo())
-                    .parents(pessoa.getPerentesco())
+                    .dataNascimento(pessoa.getDataNascimento())
+                    .sexo(pessoa.getSexo())
+                    .parentesco(pessoa.getParentesco())
                     .build()
     ).toDomain();
   }
