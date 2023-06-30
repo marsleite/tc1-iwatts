@@ -13,8 +13,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
@@ -22,17 +23,18 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
+@ToString
 @Table(name = "pessoa")
 public class PessoaEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  private String name;
+  private String nome;
   private String email;
-  private String parents;
-  private String gender;
-  private LocalDateTime birthDay;
+  private String parentesco;
+  private String sexo;
+  private LocalDate dataNascimento;
   @ManyToOne
   @JoinColumn(name = "address_id")
   private AddressEntity address;
@@ -40,11 +42,11 @@ public class PessoaEntity {
   public Pessoa toDomain() {
     return Pessoa.builder()
             .id(this.getId())
-            .nome(this.getName())
+            .nome(this.getNome())
             .email(this.getEmail())
-            .perentesco(this.getParents())
-            .sexo(this.getGender())
-            .dataNascimento(this.getBirthDay())
+            .parentesco(this.getParentesco())
+            .sexo(this.getSexo())
+            .dataNascimento(this.getDataNascimento())
             .build();
   }
 
