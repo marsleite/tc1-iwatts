@@ -19,7 +19,7 @@ public class PessoaRequestDTO {
 
   private String nome;
   private String email;
-  private String perentesco;
+  private String parentesco;
   private String sexo;
   private String dataNascimento;
 
@@ -30,7 +30,7 @@ public class PessoaRequestDTO {
     return Pessoa.builder()
             .nome(nome)
             .email(email)
-            .parentesco(perentesco)
+            .parentesco(parentesco)
             .sexo(sexo)
             .dataNascimento(dataNascimentoParsed)
             .build();
