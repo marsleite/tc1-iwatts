@@ -60,7 +60,7 @@ Status Code: 201 created`
 
 ### Cadastro de endereço
 
-`POST /iwatts/v1/address/register`
+`POST /iwatts/v1/endereco/register`
 ```json
 {
   "rua": "Rua A",
