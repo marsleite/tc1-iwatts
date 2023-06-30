@@ -36,8 +36,8 @@ public class PessoaEntity {
   private String sexo;
   private LocalDate dataNascimento;
   @ManyToOne
-  @JoinColumn(name = "address_id")
-  private AddressEntity address;
+  @JoinColumn(name = "endereco_id")
+  private EnderecoEntity endereco;
 
   public Pessoa toDomain() {
     return Pessoa.builder()

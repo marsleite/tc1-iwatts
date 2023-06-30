@@ -30,8 +30,8 @@ public class EletrodomesticoEntity {
   private String modelo;
   private Integer potencia;
   @ManyToOne
-  @JoinColumn(name = "address_id")
-  private AddressEntity address;
+  @JoinColumn(name = "endereco_id")
+  private EnderecoEntity endereco;
 
   public Eletrodomestico toDomain() {
     return Eletrodomestico.builder()
