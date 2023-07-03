@@ -1,5 +1,6 @@
 package com.grupo29.techchallengeriwatts.domain;
 
+import com.grupo29.techchallengeriwatts.dto.EnderecoResponseDTO;
 import lombok.*;
 
 import java.util.List;
@@ -23,4 +24,8 @@ public class Endereco {
     List<Pessoa> pessoas;
     @EqualsAndHashCode.Exclude
     List<Eletrodomestico> eletrodomesticos;
+
+    public EnderecoResponseDTO toResponseDTO() {
+        return new EnderecoResponseDTO(this);
+    }
 }
