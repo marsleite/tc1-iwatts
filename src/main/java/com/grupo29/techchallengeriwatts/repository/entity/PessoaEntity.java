@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -16,6 +18,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -38,6 +41,12 @@ public class PessoaEntity {
   @ManyToOne
   @JoinColumn(name = "endereco_id")
   private EnderecoEntity endereco;
+
+  @ManyToMany
+  @JoinTable(name = "pessoa_eletrodomestico",
+          joinColumns = @JoinColumn(name = "pessoa_id"),
+          inverseJoinColumns = @JoinColumn(name = "eletrodomestico_id"))
+  private List<EletrodomesticoEntity> eletrodomesticos;
 
   public Pessoa toDomain() {
     return Pessoa.builder()
