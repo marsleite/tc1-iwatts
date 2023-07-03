@@ -34,7 +34,7 @@ public class EnderecoController {
         }
 
         Endereco endereco = enderecoRepository.createAddress(enderecoDTO.toEndereco());
-        return new ResponseEntity("Endereço com id %d criado.".formatted(endereco.getId()), HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(endereco.toResponseDTO());
     }
 
     private <T> Map<Path, String> validar(T dto) {
