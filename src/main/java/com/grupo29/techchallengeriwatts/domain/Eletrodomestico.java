@@ -1,5 +1,6 @@
 package com.grupo29.techchallengeriwatts.domain;
 
+import com.grupo29.techchallengeriwatts.dto.EletrodomesticoResponseDTO;
 import lombok.*;
 
 @Getter
@@ -12,4 +13,8 @@ public class Eletrodomestico {
     private String nome;
     private String modelo;
     private Integer potencia;
+
+    public EletrodomesticoResponseDTO toResponseDTO() {
+        return new EletrodomesticoResponseDTO(this);
+    }
 }
