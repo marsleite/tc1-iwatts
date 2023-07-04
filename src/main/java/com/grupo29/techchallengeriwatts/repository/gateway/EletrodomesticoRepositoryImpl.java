@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 public class EletrodomesticoRepositoryImpl implements EletrodomesticoRepository{
 
   private final EletrodomesticoRepositoryGatewaySpring eletrodomesticoRepositoryGatewaySpring;
-  private static final String ERROR_MESSAGE  = "Eletrodomestico já cadastrado";
 
   @Autowired
   public EletrodomesticoRepositoryImpl(EletrodomesticoRepositoryGatewaySpring eletrodomesticoRepositoryGatewaySpring) {
@@ -19,9 +18,6 @@ public class EletrodomesticoRepositoryImpl implements EletrodomesticoRepository{
   }
   @Override
   public Eletrodomestico createEletrodomestico(Eletrodomestico eletrodomestico) {
-    if (eletrodomesticoRepositoryGatewaySpring.findByModelo(eletrodomestico.getModelo())) {
-      throw new RepositoryException(ERROR_MESSAGE);
-    }
 
     return eletrodomesticoRepositoryGatewaySpring.save(
             EletrodomesticoEntity.builder()
