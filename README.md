@@ -37,7 +37,7 @@ Atualmente, muitos consumidores de produtos eletroeletrônicos acabam gastando m
 
 ### Gestão de pessoas
 
-`POST /iwatts/v1/user/register`
+`POST /iwatts/api/v1/user/register`
 ```json
 {
   "nome": "Fulano",
@@ -60,7 +60,7 @@ Status Code: 201 created`
 
 ### Cadastro de endereço
 
-`POST /iwatts/v1/endereco/register`
+`POST /iwatts/api/v1/endereco/register`
 ```json
 {
   "rua": "Rua A",
@@ -77,19 +77,12 @@ Status Code: 201 created`
 ```json        
 {
   "id": 1
-  "rua": "Rua A",
-  "numero": "10",
-  "cidade": "Sao Paulo",
-  "estado": "SP",
-  "cep": "12565178",
-  "pais": "Brasil",
-  "bairro": "Morumbi"
 }
 ```
 
 ### Cadastro de Eletrodomésticos
 
-`POST /iwatts/v1/eletro/register`
+`POST /iwatts/api/v1/eletrodomestico/register`
 ```json
 {
   "name": "Geladeira",
@@ -103,6 +96,7 @@ Status Code: 201 created`
 {
   "id": 1,
   "nome": "Geladeira",
+   "modelo": "AB-GELADEIRA",
   "potencia": 1500
 }
 ```
@@ -124,8 +118,9 @@ Após a conexão bem-sucedida, você terá acesso à console do H2, onde poderá
 ## Tecnologias utilizadas
 
 - Java 17
-- Spring Boot
+- Spring versão 3.1.1
 - H2 Database
+- Projeto em gradle
 
 ## Executando a aplicação
 
@@ -135,7 +130,7 @@ Para executar a aplicação, siga as etapas abaixo:
 
 2. Clone o repositório do projeto iwatts.
 
-3. Navegue até o diretório raiz do projeto no terminal.
+3. Navegue até o diretório raiz do projeto no terminal e na branch `develop`.
 
 4. Execute o seguinte comando para compilar o projeto:
     - `./gradlew clean build`
@@ -145,6 +140,14 @@ Para executar a aplicação, siga as etapas abaixo:
 
 A aplicação será iniciada e estará pronta para receber as solicitações nos endpoints especificados.
 
-## Considerações finais
+# Desafios e Consideração Final - Projeto iWatts
 
-O projeto iwatts visa fornecer aos usuários uma solução tecnológica para monitorar e gerenciar seus consumos de energia de forma eficiente. Esperamos que essa aplicação contribua para a economia de energia, redução de custos e conscientização dos usuários sobre seus hábitos de consumo. Em caso de dúvidas ou problemas, entre em contato com a equipe de suporte.
+Durante o desenvolvimento do projeto *iWatts*, que utiliza a combinação do framework Spring com Java 17, nos deparamos com desafios significativos relacionados à gestão das tabelas de endereço, as quais possuem uma relação de um para muitos com as tabelas de pessoa e eletrodoméstico. Neste contexto, enfrentamos dificuldades para estabelecer corretamente a correlação entre o cadastro de endereço e a ligação entre as tabelas que possuem essa relação.
+
+Uma das principais razões para essa complexidade foi a ausência de uma camada de serviço no nosso sistema. Sem essa camada intermediária, a responsabilidade de gerenciar as relações entre as tabelas foi atribuída diretamente ao controller. No entanto, essa abordagem poderia ferir o princípio SOLID de responsabilidade única, uma vez que o controller já é responsável pela lógica de controle da interação com o usuário e pelo gerenciamento de requisições.
+
+Ao tentar relacionar o cadastro de endereço com as tabelas de pessoa e eletrodoméstico no controller, notamos que a complexidade do código aumentava consideravelmente. Além disso, qualquer mudança nas regras de negócio ou nas relações entre as entidades exigiria alterações diretas no controller, o que comprometeria a manutenibilidade e a escalabilidade do sistema.
+
+Diante desse cenário, identificamos a necessidade de introduzir uma camada de serviço ou use case para tratar das operações de relacionamento entre as tabelas. Essa camada intermediária nos permitiria encapsular a lógica complexa de correlação e manter o controller focado em suas responsabilidades principais, garantindo uma melhor aderência ao princípio SOLID.
+
+Em conclusão, o projeto iWatts enfrentou desafios significativos na correlação das tabelas de endereço com as tabelas de pessoa e eletrodoméstico. A ausência de uma camada de serviço dificultou essa correlação, e a solução proposta é a implementação dessa camada intermediária para tratar das operações de relacionamento. Essa abordagem fortalecerá a arquitetura do sistema, mantendo o controller focado em suas responsabilidades principais e garantindo uma melhor aderência aos princípios SOLID.
