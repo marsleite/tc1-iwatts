@@ -82,7 +82,7 @@ Status Code: 201 created`
 
 ### Cadastro de Eletrodomésticos
 
-`POST /iwatts/api/v1/eletro/register`
+`POST /iwatts/api/v1/eletrodomestico/register`
 ```json
 {
   "name": "Geladeira",
