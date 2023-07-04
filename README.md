@@ -130,7 +130,7 @@ Para executar a aplicação, siga as etapas abaixo:
 
 2. Clone o repositório do projeto iwatts.
 
-3. Navegue até o diretório raiz do projeto no terminal.
+3. Navegue até o diretório raiz do projeto no terminal e na branch develop.
 
 4. Execute o seguinte comando para compilar o projeto:
     - `./gradlew clean build`
