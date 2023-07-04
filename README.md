@@ -37,7 +37,7 @@ Atualmente, muitos consumidores de produtos eletroeletrônicos acabam gastando m
 
 ### Gestão de pessoas
 
-`POST /iwatts/api/v1/user/register`
+`POST /iwatts/api/v1/pessoa/register`
 ```json
 {
   "nome": "Fulano",
